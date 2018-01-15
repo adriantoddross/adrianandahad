@@ -2,12 +2,12 @@
 // let age = 21;
 
 function whoAmI(name = 'Chris', age = 29){
-  let yob = age;
-  console.log('\"Hi, my name is ' + name + ' and I\'m ' + age + ' years old\"');
+ console.log('\"Hi, my name is ' + name + ' and I\'m ' + age + ' years old\"');
+ return age;
 }
-whoAmI();
 
 function birthYear(age = 29) {
+  let yob=whoAmI();
   let yearOfBirth = 2018 - age;
   console.log('"I was born in ' + yearOfBirth + '\"');
 }
