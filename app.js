@@ -14,15 +14,37 @@
 
 // birthYear();
 
-function yearOfBirth (age) {
-  const currentYear = 2018;
-  return currentYear - age;
-}
-
 function whoAmI (name, age) {
-  const yob = yearOfBirth(age);
-  // return name + yob;
-  return `"Hi, my name is ${name} and I was born in ${yob}."`;
+  // unsused answer: const yob = yearOfBirth(age);
+  // unsused answer: return name + yob;
+  if (typeof(name) === "string" && typeof(age) === "number") {
+    console.log(`Hi, my name is ${name} and I was born in ${age}.`);
+  } else if (typeof(name) !== "string" || typeof(age) !== "number") {
+    console.error("Arguments not valid");
+  }
+  else {
+    throw 'error';
+  }
 }
 
-console.log(whoAmI('Adrian', 24));
+function testingAge (name, age) {
+whoAmI(name, age);
+  if (age < 0) {
+    throw 'error';
+  } else if (typeof(age) !== "number") {
+    throw 'error';
+  } else {
+    console.log('It works.');
+  }
+}
+
+function yearOfBirth (name, age) {
+  const currentYear = 2018;
+  let yearOfBirth = currentYear - age;
+  try {
+    testingAge(name, yearOfBirth);
+  } catch (error) {
+    return `Age can not be a negative number.`;
+  }
+}
+console.log(yearOfBirth('Adrian', 23));
